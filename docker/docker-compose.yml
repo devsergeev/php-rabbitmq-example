@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  php-cli:
+    user: "${UID:-1000}:${GID:-1000}"
+    build:
+      context: php-cli
+    volumes:
+      - ..:/app
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
